@@ -1,29 +1,172 @@
-<h2>Sign up</h2>
+<%= form_with model: resource, url: registration_path(resource),class: 'form-horizontal', local: true do |f| %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="margin-left: 38px">
+    <%#= devise_error_messages! %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="margin-left: 38px">
+        <h2>Create an account</h2>
+        <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 field-label-responsive">
+      <%= f.label :first_name %><br />
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+          <!-- <input type="text" name="name" class="form-control" id="name" -->
+                 <!-- placeholder="John Doe" required autofocus> -->
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",:class=>"form-control",:placeholder=>"John"%>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-control-feedback">
+        <span class="text-danger align-middle">
+          <%= resource.errors[:first_name].first%>
+        </span>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="row">
+    <div class="col-md-3 field-label-responsive">
+        <%= f.label :last_name %><br />
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+          <!-- <input type="text" name="name" class="form-control" id="name" -->
+                 <!-- placeholder="John Doe" required autofocus> -->
+
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",:class=>"form-control",:placeholder=>"Doe" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-control-feedback">
+                <span class="text-danger align-middle">
+                    <!-- Put name validation error messages here -->
+                    <%= resource.errors[:last_name].first%>
+                </span>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 field-label-responsive">
+      <%= f.label :date_of_birth %><br />
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+          <!-- <input type="text" name="name" class="form-control" id="name" -->
+                 <!-- placeholder="John Doe" required autofocus> -->
+
+          <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth",:class=>"form-control",:placeholder=>"DD/MM/YYYY" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-control-feedback">
+        <span class="text-danger align-middle">
+          <%= resource.errors[:date_of_birth].first%>
+        </span>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <div class="row">
+    <div class="col-md-3 field-label-responsive">
+      <%= f.label :email %><br />
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+          <!-- <input type="text" name="email" class="form-control" id="email"
+                 placeholder="you@example.com" required autofocus> -->
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",:class=>"form-control",:placeholder=>"you@example.com" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-control-feedback">
+        <span class="text-danger align-middle">
+            <!-- Put e-mail validation error messages here -->
+            <%= resource.errors[:email].first%>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 field-label-responsive">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+    </div>
+    <div class="col-md-6">
+      <div class="form-group has-danger">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+          <!-- <input type="password" name="password" class="form-control" id="password"
+                 placeholder="Password" required> -->
+          <%= f.password_field :password, autocomplete: "new-password",:class=>"form-control",:placeholder=>"Password" %>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-control-feedback">
+        <span class="text-danger align-middle">
+            <i class="fa fa-close">
+            <%= resource.errors[:password].first%>
+            </i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 field-label-responsive">
+      <%= f.label :password_confirmation %><br />
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon" style="width: 2.6rem">
+              <i class="fa fa-repeat"></i>
+          </div>
+          <!-- <input type="password" name="password-confirmation" class="form-control"
+                 id="password-confirm" placeholder="Password" required> -->
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",:class=>"form-control",:placeholder=>"Confirm Password" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-control-feedback">
+        <span class="text-danger align-middle">
+            <i class="fa fa-close">
+            <%= resource.errors[:password_confirmation  ].first%>
+            </i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="margin-left: 42px">
+ <!--        <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button> -->
+      <%= f.submit "Sign up", :class =>  "btn btn-success"%>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
