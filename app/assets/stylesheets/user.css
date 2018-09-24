@@ -1,15 +1,7 @@
 ul{
   margin-left: 76%
 }
-.navbar-nav{
-  padding-top: 22px;
-}
 nav{
   height: 10%
 }
-@media(min-width: 768px) {
-  .field-label-responsive {
-    padding-top: .5rem;
-    text-align: right;
-  }
-}
+
